@@ -1,0 +1,39 @@
+﻿@model IEnumerable<CoffeeShop.Models.Supplier>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SupplierName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CountryOfOrigin)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupplierName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CountryOfOrigin)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SupplierId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SupplierId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SupplierId })
+        </td>
+    </tr>
+}
+
+</table>

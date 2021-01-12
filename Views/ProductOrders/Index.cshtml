@@ -1,0 +1,45 @@
+﻿@model IEnumerable<CoffeeShop.Models.ProductOrder>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Order.OrderName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order.OrderName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product.ProductName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { productId = item.ProductId, orderId = item.OrderId }) |
+            @Html.ActionLink("Details", "Details", new { productId = item.ProductId, orderId = item.OrderId }) |
+            @Html.ActionLink("Delete", "Delete", new { productId = item.ProductId, orderId = item.OrderId })
+        </td>
+    </tr>
+}
+
+</table>
